@@ -1,0 +1,124 @@
+#canvas_wrapper {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 10px;
+    left: 0;
+    z-index: -1;
+}
+
+.wrapper {
+    float: right;
+    width: 400px;
+}
+
+.wrapper h1 {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+
+    cursor: pointer;
+    text-align: center;
+
+    color: #f0f0f0;
+    background: #020202;
+}
+
+.wrapper ol {
+    max-width: 100%;
+    margin: 0;
+
+    background: #020202;
+}
+
+.wrapper li {
+    position: relative;
+
+    width: auto;
+    max-width: 100%;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    margin: 0;
+    margin-bottom: 5px;
+
+    border-bottom: 1px solid #ccc;
+}
+
+.wrapper li span {
+    margin-right: 5px;
+
+    cursor: pointer;
+
+    opacity: .3;
+    border-radius: 2px;
+    background: #f0f0f0;
+}
+
+.caret {
+    display: block;
+    float: right;
+    width: 30px;
+    height: 20px;
+    margin-top: 5px;
+    margin-right: 20px;
+
+    line-height: 20px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    border-radius: 2px;
+    background: rgb(200, 200, 200, .2);
+}
+
+.dropdown {
+    height: 0;
+    overflow: hidden;
+
+    transition: all .4s;
+}
+
+.dropdown.active {
+    height: 100%;
+    overflow: visible;
+}
+
+.ctx_menu {
+    position: absolute;
+    z-index: 200;
+
+    width: 80%;
+    max-width: 200px;
+
+    background: rgba(21, 27, 86, .7);
+}
+
+.ctx_menu select {
+    width: 100%;
+    padding: 5px 12px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+
+    color: #f0f0f0;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.ctx_menu select option {
+    text-align: center;
+
+    border: none;
+    border-bottom: #c0c0c0;
+    outline: none;
+    background: rgba(21, 27, 86, .7);
+}
