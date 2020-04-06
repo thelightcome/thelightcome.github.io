@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Угадай слово</title>
+</head>
+<body>
+	<label for="theme">Theme <input type="text" id="input_th"></label>
+	<button id="th-btn">Добавить тему</button>
+	<br>
+	<br>
+	<select name="theme" id="select">
+		<% for (let elem in themes) { %>
+			<option value="<%= themes[elem].id %>"><%= themes[elem].name %></option>
+		<% } %>
+	</select>
+	<br>
+	<br>
+	<label for="words">Word <input type="text" id="input_w"></label>
+	<button id="w_btn">Добавить слово</button>
+	<h2>Добавленные слова</h2>
+	<ul id="add_words"></ul>
+	<button id="find_btn">Find</button>
+	<h2>Найденные слова</h2>
+	<ul id="find_by_theme">
+	</ul>
+	<script>
+		const th_btn = document.querySelector('#th-btn'),
+			  w_btn = document.querySelector('#w_btn'),
+			  find_btn = document.querySelector('#find_btn'),
+			  input_th = document.querySelector('#input_th'),
+			  add_words = document.querySelector('#add_words'),
+			  find_by_theme = document.querySelector('#find_by_theme'),
+			  input_w = document.querySelector('#input_w'),
+			  select = document.querySelector('#select');
+
+
+		th_btn.addEventListener('click', async () => {
+			for (let elem of select.querySelectorAll('option')) {
+				if (input_th.value.trim().toLowerCase() == elem.textContent.trim().toLowerCase()) {
+					console.log('Уже добавлено!');
+					return
+				}
+			}
+			await fetch('/addtheme', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json;charset=utf-8'
+				},
+				body: JSON.stringify({
+					value: input_th.value
+				})
+			})
+			.then(response => response.json())
+    		.then(result => {
+    			let opt = document.createElement('option');
+    			opt.setAttribute('value', result._id);
+    			opt.innerHTML = result.name;
+    			select.append(opt);
+    		});
+		});
+
+		w_btn.addEventListener('click', async () => {
+			await fetch('/addword', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json;charset=utf-8'
+				},
+				body: JSON.stringify({
+					value: input_w.value,
+					theme: select.value
+				})
+			})
+			.then(response => response.json())
+    		.then(result => {
+    			let opt = document.createElement('li');
+    			let th = select.querySelector(`[value="${ result.theme }"]`).textContent ;
+    			opt.setAttribute('value', result.theme);
+    			opt.innerHTML = th + "---" + result.value;
+    			add_words.append(opt);
+    		});
+		});
+
+		find_btn.addEventListener('click', async () => {
+			await fetch('/findword', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json;charset=utf-8'
+				},
+				body: JSON.stringify({
+					theme: select.value
+				})
+			})
+			.then(response => response.json())
+    		.then(result => {
+    			find_by_theme.innerHTML = result.map((elem) => {
+    				return elem.value
+    			}).join(', ');
+    		});
+		});
+	</script>
+</body>
+</html>

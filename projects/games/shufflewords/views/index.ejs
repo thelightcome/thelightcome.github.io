@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Угадай слово</title>
+	<link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="pages active" data-page="index">
+			<h1>Угадай слово</h1>
+			<button class="btns" data-to="options">Начать игру</button>
+			<button class="btns" data-to="rules">Правила</button>
+		</div>
+		<div class="pages rules" data-page="rules">
+			<button class="close-btn" data-to="index">Назад</button>
+			<h2>Правила</h2>
+			<div class="rules-content" data-type="scroller">
+				<span class="scroller-line"><span class="scroller"></span></span>
+				<div>
+					<p>Игроку загадывается слово связанная с темой указанной в вверху игрового поля.</p>
+					<p>Игрок должен угадать слово нажимая на буквы в правильном порядке.</p>
+					<p>При правильном ответе загадываеться следующее слово.</p>
+					<p>За каждую букву угаданного слова дается 10 балл.</p>
+					<p>При затруднений игрок может нажать на кнопку подсказки (вопросительный знак) которая будет подсказывать следующую букву слова показывая порядковый номер.</p>
+					<p>Чем большее подсказок используеться, тем меньше баллов дается за угаданное слово.</p>
+					<p>При пропуске слова игрок теряет балл равное на половину количества букв в загадонном слове.</p>
+				</div>
+			</div>
+		</div>
+		<div class="pages pages-options" data-page="options">
+			<button class="close-btn" data-to="index">Назад</button>
+			<h2>Настройки</h2>
+			<div class="option">
+				<h3>Время игры: <input type="number" max="99" min="5" maxlength="2" placeholder="5" value="5"> минут</h3>
+			</div>
+			<h3>Темы</h3>
+			<div class="theme-wrapper" data-type="scroller">
+				<span class="scroller-line"><span class="scroller"></span></span>
+				<div class="themes">
+					<% for (let elem in themes) { %>
+						<span data-type="checklist" data-val="<%= themes[elem].id %>"><%= themes[elem].name %></span>
+					<% } %>
+				</div>
+			</div>
+			<button class="btns" id="start-game">Продолжить</button>
+		</div>
+		<div class="pages answer" data-page="answer">
+			<button class="close-btn" data-to="options">Назад</button>
+			<div class="board">
+				<span class="score"></span>
+				<span class="time"></span>
+			</div>
+			<h2 class="theme-board"></h2>
+			<div class="letter-block">
+			</div>
+			<div class="answer-block"></div>
+			<div class="btn-group">
+				<button class="btns" id="replay">Начать занова</button>
+				<button class="btns" id="reset">Пропустить</button>
+				<label alt="Подсказки" for="hint">? <span id="hint"></span></label>
+			</div>
+		</div>
+	</div>
+	<div class="info-board"></div>
+	<script src="javascripts/dynamics.js"></script>
+	<script src="javascripts/games.js"></script>
+</body>
+</html>
