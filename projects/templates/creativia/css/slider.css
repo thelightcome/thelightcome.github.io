@@ -1,0 +1,133 @@
+.slider {
+    position: relative;
+    z-index: 1;
+
+    height: 100%;
+    max-width: 90%;
+    padding: 0 100px;
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.slider_left,
+.slider_right {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+
+    padding: 5px;
+    margin-top: -10px;
+
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 0;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-transition: .2s;
+       -moz-transition: .2s;
+        -ms-transition: .2s;
+         -o-transition: .2s;
+            transition: .2s;
+
+    color: #a4a4a4;
+}
+.slider_left:hover,
+.slider_right:hover {
+    color: #ff0036;
+}
+.slider_left {
+    left: 0;
+}
+.slider_right {
+    right: 0;
+}
+.slider_body {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.slider_items {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    padding-top: 223px;
+
+    -webkit-transition: .3s;
+       -moz-transition: .3s;
+        -ms-transition: .3s;
+         -o-transition: .3s;
+            transition: .3s;
+    text-align: center;
+}
+.slider_items.active {
+    z-index: 2;
+}
+.slider_items h3 {
+    margin-bottom: 37px;
+
+    font-size: 1.9em;
+    font-weight: bold;
+
+    text-transform: lowercase;
+
+    color: #ff0036;
+}
+.slider_items h3 span {
+    color: #fff;
+}
+.slider_items p {
+    color: #fff;
+}
+.slider_items .btn {
+    margin: auto;
+}
+.slider_items button {
+    display: inline-block;
+    padding: 17px 34px;
+    margin-right: 12px;
+
+    font-size: 1.25em;
+
+    cursor: pointer;
+    -webkit-transition: .2s;
+       -moz-transition: .2s;
+        -ms-transition: .2s;
+         -o-transition: .2s;
+            transition: .2s;
+    text-transform: uppercase;
+
+    color: #fff;
+    border: none;
+    background: #131313;
+}
+.slider_items button:hover,
+.slider_items button.active {
+    background: #ff0036;
+}
+@media (max-width: 768px) {
+    .slider_items {
+        padding-top: 180px;
+    }
+    .slider_items button {
+        padding: 10px 28px;
+
+        font-size: 1em;
+    }
+}
+@media (max-width: 992px) {
+    .slider {
+        max-width: 95%;
+        padding: 0 65px;
+    }
+}

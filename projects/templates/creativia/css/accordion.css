@@ -1,0 +1,107 @@
+.accordion_items {
+    width: 100%;
+    height: 44px;
+    margin-bottom: 9px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+    border: 1px solid #e7e7e7;
+}
+.accordion_items.active {
+    height: auto;
+}
+.accordion_btn {
+    display: block;
+    width: 100%;
+    height: 44px;
+
+    font-size: 1.4em;
+    line-height: 44px;
+
+    cursor: pointer;
+    -webkit-transition: .2s;
+       -moz-transition: .2s;
+        -ms-transition: .2s;
+         -o-transition: .2s;
+            transition: .2s;
+    vertical-align: middle;
+
+    color: #262626;
+    border-bottom: 1px solid #e7e7e7;
+    background: #f7f7f7;
+}
+.active .accordion_btn,
+.accordion_btn:hover {
+    color: #ff0036 !important;
+}
+.active .accordion_btn span i,
+.accordion_btn:hover span i {
+    border-color: #ff0036;
+}
+.accordion_btn span {
+    position: relative;
+
+    display: block;
+    float: left;
+    width: 58px;
+    height: 44px;
+    margin-right: 20px;
+
+    border-right: 1px solid #e7e7e7;
+}
+.accordion_btn span i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 18px;
+    height: 18px;
+    margin: -9px 0 0 -9px;
+
+    font-size: .8em;
+    line-height: 18px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    border: 1px solid #262626;
+    -webkit-border-radius: 50%;
+            border-radius: 50%;
+}
+.accordion_btn span i.minus {
+    display: none;
+}
+.active .accordion_btn span i.minus {
+    display: block;
+}
+.active .accordion_btn span i.plus {
+    display: none;
+}
+.accordion_body {
+    padding: 10px 13px;
+    margin-bottom: 0;
+
+    -webkit-transition: .2s;
+       -moz-transition: .2s;
+        -ms-transition: .2s;
+         -o-transition: .2s;
+            transition: .2s;
+    -webkit-transform: rotateX(-90deg);
+       -moz-transform: rotateX(-90deg);
+        -ms-transform: rotateX(-90deg);
+         -o-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+    -webkit-transform-origin: top;
+       -moz-transform-origin: top;
+        -ms-transform-origin: top;
+         -o-transform-origin: top;
+            transform-origin: top;
+}
+.active .accordion_body {
+    -webkit-transform: rotateX(0deg);
+       -moz-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+         -o-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+}
