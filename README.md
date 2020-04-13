@@ -1,2 +1,0 @@
-# thelightcome.github.io
- thelightcome
