@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
@@ -138,7 +137,7 @@
 						<p>Tel:  <a href="tel:+77073416054">+7 707 341 60 54</a></p>
 						<p>Email:  <a href="mailto:nurik_95s@mail.ru">nurik_95s@mail.ru</a></p>
 					</div>
-				</article class="menu__body">
+				</article>
 			</li>
 		</ul>
 	</section>
