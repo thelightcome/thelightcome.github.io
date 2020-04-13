@@ -93,7 +93,7 @@
 								<div class="img_wrap">
 									<iframe src="projects/templates/elements/index.html"></iframe>
 								</div>
-							<li>
+							</li>
 						</ul>
 					</div>
 				</article>
