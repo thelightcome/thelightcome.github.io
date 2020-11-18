@@ -123,7 +123,7 @@
 								<a href="projects/others/calculate/calc.html">calculator</a>
 							</li>
 							<li>
-								<a href="projects/others/coordinate_system/coord.html">coordinate system</a>
+								<a href="projects/others/coord/coord.html">coordinate system</a>
 							</li>
 						</ul>
 					</div>
